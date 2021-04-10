@@ -1,4 +1,4 @@
-package com.boots.service;
+package com.boots.service.implementations;
 
 import com.boots.entity.Role;
 import com.boots.entity.User;
