@@ -34,11 +34,7 @@
 <div class="limiter">
   <div class="container-login100">
     <div class="wrap-login100">
-      <div class="login100-form-title" style="background-image: url('${contextPath}/resources/images/bg-01.jpg');">
-					<span class="login100-form-title-1">
-						Зарегистрироваться
-					</span>
-      </div>
+      <div class="login100-form-title" style="background-image: url('${contextPath}/resources/img/bg-01.jpg');"></div>
 
       <form:form class="login100-form" method="POST" modelAttribute="userForm">
         <div class="wrap-input100 validate-input m-b-26">
@@ -52,7 +48,7 @@
 
         <div class="wrap-input100 validate-input m-b-18">
           <span class="label-input100">Имя</span>
-          <form:input class="input100" type="text" path="firstName" placeholder="Имя"/>
+          <form:input class="input100" type="email" path="firstName" placeholder="Имя"/>
           <span class="focus-input100"></span>
         </div>
 
@@ -75,9 +71,9 @@
           <span class="focus-input100"></span>
         </div>
 
-        <div class="container-login100-form-btn">
+        <div class="container-login100-form-btn -align-center">
           <button class="login100-form-btn">
-            Login
+            Зарегистрироваться
           </button>
         </div>
       </form:form>

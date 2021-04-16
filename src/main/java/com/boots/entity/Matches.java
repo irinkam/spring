@@ -13,11 +13,11 @@ public class Matches {
 
     private Date date;
 
-    private Long firstTeamId;
+    private String firstTeamName;
 
     private Integer firstTeamGoals;
 
-    private Long secondTeamId;
+    private String secondTeamName;
 
     private Integer secondTeamGoals;
 
@@ -48,28 +48,12 @@ public class Matches {
         this.date = date;
     }
 
-    public Long getFirstTeamId() {
-        return firstTeamId;
-    }
-
-    public void setFirstTeamId(Long firstTeamId) {
-        this.firstTeamId = firstTeamId;
-    }
-
     public Integer getFirstTeamGoals() {
         return firstTeamGoals;
     }
 
     public void setFirstTeamGoals(Integer firstTeamGoals) {
         this.firstTeamGoals = firstTeamGoals;
-    }
-
-    public Long getSecondTeamId() {
-        return secondTeamId;
-    }
-
-    public void setSecondTeamId(Long secondTeamId) {
-        this.secondTeamId = secondTeamId;
     }
 
     public Integer getSecondTeamGoals() {
@@ -102,5 +86,21 @@ public class Matches {
 
     public void setFoulsCollection(Collection<Fouls> foulsCollection) {
         this.foulsCollection = foulsCollection;
+    }
+
+    public String getFirstTeamName() {
+        return firstTeamName;
+    }
+
+    public void setFirstTeamName(String firstTeamName) {
+        this.firstTeamName = firstTeamName;
+    }
+
+    public String getSecondTeamName() {
+        return secondTeamName;
+    }
+
+    public void setSecondTeamName(String secondTeamName) {
+        this.secondTeamName = secondTeamName;
     }
 }

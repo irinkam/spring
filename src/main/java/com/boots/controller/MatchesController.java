@@ -1,6 +1,7 @@
 package com.boots.controller;
 
 import com.boots.service.MatchesService;
+import com.boots.service.TeamsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,9 +13,13 @@ public class MatchesController {
     @Autowired
     private MatchesService matchesService;
 
+    @Autowired
+    private TeamsService teamsService;
+
     @GetMapping("/matches")
     public String viewMatchesPage(Model model)
     {
+        model.addAttribute("teamsList", teamsService.getAllTeams());
         model.addAttribute("listOfMatches", matchesService.getAllMatches());
         return "matches";
     }

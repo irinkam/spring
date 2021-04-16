@@ -33,11 +33,7 @@
 <div class="limiter">
   <div class="container-login100">
     <div class="wrap-login100">
-      <div class="login100-form-title" style="background-image: url('${contextPath}/resources/images/bg-01.jpg');">
-					<span class="login100-form-title-1">
-						Войти
-					</span>
-      </div>
+      <div class="login100-form-title" style="background-image: url('${contextPath}/resources/img/bg-01.jpg');"></div>
 
       <form class="login100-form validate-form" method="POST" action="/login">
         <div class="wrap-input100 validate-input m-b-26">
@@ -54,7 +50,7 @@
 
         <div class="container-login100-form-btn">
           <button class="login100-form-btn">
-            Login
+            Войти
           </button>
         </div>
       </form>

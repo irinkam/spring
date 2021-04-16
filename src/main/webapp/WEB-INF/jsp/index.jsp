@@ -7,6 +7,9 @@
 <head>
   <title>Главная</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+        rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+        crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
   <link href="${contextPath}/resources/css/templatemo-style.css" rel="stylesheet" />
 
@@ -33,6 +36,9 @@
               <li class="tm-nav-li"><a href="/login" class="tm-nav-link">Войти</a></li>
               </sec:authorize>
               <sec:authorize access="isAuthenticated()">
+                <li class="tm-nav-li"><a href="/matches" class="tm-nav-link">Матчи</a></li>
+                <li class="tm-nav-li"><a href="/news" class="tm-nav-link">Новости</a></li>
+                <li class="tm-nav-li"><a href="/teams" class="tm-nav-link">Команды</a></li>
                 <li class="tm-nav-li"><a href="/logout" class="tm-nav-link">Выйти</a></li>
               </sec:authorize>
               <sec:authorize access="!isAuthenticated()">
@@ -51,13 +57,21 @@
       <p class="col-12 text-center">Здесь вы можете посмотреть информацию о предстоящих и прошедших матчах, а также информацию о любимых командах российского и мирового футбола</p>
     </header>
 
+    <!-- Тег для HTML5, не работает с JSP -->
+    <audio src="${contextPath}/resources/media/04664.mp3"></audio>
+
     <div class="tm-paging-links">
       <nav>
         <ul>
-          <button type="button" class="btn btn-outline-success">Success</button>
-          <button type="button" class="btn btn-outline-success">Success</button>
-          <li class="tm-paging-item"><a href="#" class="tm-paging-link active">Просмотр матчей</a></li>
-          <li class="tm-paging-item"><a href="#" class="tm-paging-link">Просмотр команд</a></li>
+          <a href="matches" class="btn btn-outline-success">Просмотр матчей</a>
+          &nbsp;
+          <a href="teams" class="btn btn-outline-success">Просмотр команд</a>
+          &nbsp;
+          <a href="news" class="btn btn-outline-success">Просмотр новостей</a>
+          &nbsp;
+          <sec:authorize access="hasAnyRole('ROLE_ADMIN')">
+            <a href="admin" class="btn btn-outline-success">Администрирование</a>
+          </sec:authorize>
         </ul>
       </nav>
     </div>
