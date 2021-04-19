@@ -3,6 +3,7 @@ package com.boots.controller;
 import com.boots.service.NewsService;
 import com.boots.service.TeamsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ public class NewsController {
     @Autowired
     private NewsService newsService;
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/news")
     public String viewTeamsPage(Model model)
     {
