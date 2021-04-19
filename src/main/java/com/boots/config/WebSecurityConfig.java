@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
@@ -17,6 +19,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     UserService userService;
 
     @Bean
+    public SessionRegistry sessionRegistry() {
+        return new SessionRegistryImpl();
+    }
+
+    @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -24,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
+                // защита от межсайтовой подделки запросов
                 .csrf()
                     .disable()
                 .authorizeRequests()
@@ -47,7 +55,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .logout()
                     .permitAll()
-                    .logoutSuccessUrl("/");
+                    // сессии
+                    .logoutSuccessUrl("/").and().sessionManagement().maximumSessions(1).sessionRegistry(sessionRegistry());;
     }
 
     @Autowired

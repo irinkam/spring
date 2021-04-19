@@ -57,9 +57,6 @@
       <p class="col-12 text-center">Здесь вы можете посмотреть информацию о предстоящих и прошедших матчах, а также информацию о любимых командах российского и мирового футбола</p>
     </header>
 
-    <!-- Тег для HTML5, не работает с JSP -->
-    <audio src="${contextPath}/resources/media/04664.mp3"></audio>
-
     <div class="tm-paging-links">
       <nav>
         <ul>
@@ -122,6 +119,11 @@
           </figure>
         </article>
       </div> <!-- gallery page -->
+
+      <!-- Тег для HTML5-->
+      <audio controls>
+        <source src="${contextPath}/resources/media/04664.mp3" type="audio/mpeg">
+      </audio>
 
     </div>
     <div class="tm-section tm-container-inner">
